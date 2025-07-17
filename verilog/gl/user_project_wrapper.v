@@ -32,14 +32,14 @@ module user_project_wrapper (user_clock2,
  input wbs_cyc_i;
  input wbs_stb_i;
  input wbs_we_i;
- input vssa2;
- input vdda2;
- input vssa1;
- input vdda1;
- input vssd2;
- input vccd2;
- input vssd1;
- input vccd1;
+ inout vssa2;
+ inout vdda2;
+ inout vssa1;
+ inout vdda1;
+ inout vssd2;
+ inout vccd2;
+ inout vssd1;
+ inout vccd1;
  inout [28:0] analog_io;
  input [37:0] io_in;
  output [37:0] io_oeb;
@@ -54,8 +54,8 @@ module user_project_wrapper (user_clock2,
  input [3:0] wbs_sel_i;
 
 
- user_proj_example mprj (.vccd1(vccd1),
-    .vssd1(vssd1),
+ user_proj_example mprj (.vccd1(vccd2),
+    .vssd1(vssd2),
     .wb_clk_i(wb_clk_i),
     .wb_rst_i(wb_rst_i),
     .wbs_ack_o(wbs_ack_o),
